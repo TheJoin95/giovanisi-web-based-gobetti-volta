@@ -1,0 +1,34 @@
+<html>
+<head>
+<meta charset="utf8">
+</head>
+<body>
+<script>
+var numero = 2;
+var stringa = 'ciao';
+var booleano = true;
+var nullo = null;
+var nondefinito = undefined;
+
+console.log(numero);
+numero = 'hello';
+console.log(numero);
+
+
+var array = [1, 2, 3, true, 5, "ciao"];
+var oggetto = {
+	pippo: 3, 
+	pluto: true
+};
+
+function miaFunc() {
+	console.log('sono dentro miaFunc');	
+}
+
+oggetto.miaFunc = miaFunc;
+
+oggetto.miaFunc();
+
+</script>
+</body>
+</html>
