@@ -1,3 +1,4 @@
+== TL;DR ==
 Programma Operativo Nazionale Occupazione Giovani
 CORSO DI FORMAZIONE “web-based”: sviluppo di applicazioni informatiche per il web
 AGENZIA FORMATIVA VOLTA FORMAZIONE FORMAZIONE MIRATA ALL'INSERIMENTO LAVORATIVO
@@ -6,7 +7,14 @@ https://web.archive.org/web/20161203122742/http://gobettivolta.gov.it/risorse/gi
 
 In questo repository si trovano risorse per la parte del corso: Linguaggi lato client (JavaScript, jQuery, AngularJS)
 
-Slide
+== Slide ==
 02-24 13:30/14:30 - https://goo.gl/YIFZed
 02-24 14:30/15 -
+
+== Risorse ==
+
+JavaScript Encyclopedia - http://www.crockford.com/javascript/encyclopedia/
+Douglas Crockford: Programming Style and Your Brain - https://vimeo.com/50338973
+Chrome DevTools - https://developer.chrome.com/devtools
+Javascript: Il linguaggio di programmazione più incompreso del mondo - https://eineki.wordpress.com/2009/07/19/javascript-il-linguaggio-di-programmazione-piu-incompreso-del-mondo/
 
