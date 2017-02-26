@@ -65,6 +65,20 @@
     console.log(submit_event);
     var todo_text = submit_event.target.elements.item("todo").value;
     console.log("todo_text: " + todo_text);
+
+    append_todo(todo_text);
+  }
+
+  function append_todo(todo_text) {
+    var todo_mustache_template = '<li onclick="ask_done_delete(this);" >{{ todo_text }}</li>';
+
+    var view_model = {
+      todo_text : todo_text
+    };
+    var output = Mustache.render(todo_mustache_template, view_model);
+
+    var list_todos = document.getElementById("list_todos");
+    list_todos.innerHTML += output;
   }
 </script>
 </body>
