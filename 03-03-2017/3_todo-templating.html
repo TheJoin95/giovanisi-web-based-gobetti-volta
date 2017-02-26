@@ -1,0 +1,71 @@
+<html>
+<head>
+  <meta charset="utf8">
+  <style>
+    .done {
+      color: green;
+      font-style: italic;
+    }
+
+    .deleted {
+      color: red;
+      text-decoration: line-through;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+</head>
+<body>
+<h1>TODOssssss</h1>
+<h3>Create</h3>
+<form id="create_todos">
+  <input type="text" placeholder="todo" name="todo"/>
+  <input type="submit" value="Aggiungi alla lista"/>
+</form>
+<h3>List</h3>
+<ul id="list_todos">
+  <li onclick="ask_done_delete(this);">Comprare del cavolfiore</li>
+  <li onclick="ask_done_delete(this);" class="done">Controllare il telegiornale</li>
+  <li onclick="ask_done_delete(this);" class="deleted">Studiare JavaScript</li>
+  <li onclick="ask_done_delete(this);" >Osservare il cielo</li>
+</ul>
+<script>
+  function ask_done_delete(_elemento_cliccato) {
+    var ACTIONS            = {
+      DONE  : "DONE",
+      DELETE: "DELETE",
+      TODO  : "TODO",
+    };
+    var done_or_delete     = window.prompt( 'Scrivi done,delete,todo', '' );
+    done_or_delete         = done_or_delete.toUpperCase();
+
+    switch ( done_or_delete ) {
+      case ACTIONS.DONE:
+        _elemento_cliccato.classList.remove( 'deleted' );
+        _elemento_cliccato.classList.add( 'done' );
+        break;
+      case ACTIONS.DELETE:
+        _elemento_cliccato.classList.add( 'deleted' );
+        _elemento_cliccato.classList.remove( 'done' );
+        break;
+      case ACTIONS.TODO:
+        _elemento_cliccato.classList.remove( 'deleted' );
+        _elemento_cliccato.classList.remove( 'done' );
+        break;
+      default:
+        console.log( "done_or_delete nessuna azione" );
+        break;
+    }
+  }
+
+  var create_todos_form = document.getElementById("create_todos");
+  create_todos_form.addEventListener('submit', create_todos_submit);
+  function create_todos_submit(submit_event){
+    console.log("create_todos_submit");
+    submit_event.preventDefault();
+    console.log(submit_event);
+    var todo_text = submit_event.target.elements.item("todo").value;
+    console.log("todo_text: " + todo_text);
+  }
+</script>
+</body>
+</html>
