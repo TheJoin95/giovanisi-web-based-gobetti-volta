@@ -1,0 +1,53 @@
+<html>
+<head>
+  <meta charset="utf8">
+  <style>
+    .done {
+      color: green;
+      font-style: italic;
+    }
+
+    .deleted {
+      color: red;
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body onclick="bodyonclick()">
+<h1>TODOssssss</h1>
+<h3>Create</h3>
+<form id="create_todos">
+  <input type="text" placeholder="todo" name="todo"/>
+  <input type="submit" value="Aggiungi alla lista"/>
+</form>
+<h3>List</h3>
+<ul id="list_todos">
+  <li class="todos">Comprare del cavolfiore</li>
+  <li class="todos done">Controllare il telegiornale</li>
+  <li class="todos deleted">Studiare JavaScript</li>
+  <li class="todos">Osservare il cielo</li>
+</ul>
+<script>
+  function bodyonclick() {
+    console.log( "CLICCATA BODY" );
+  }
+
+  var ul_list_todos = document.getElementById( "list_todos" );
+  ul_list_todos.addEventListener( 'click', ulclick );
+
+  function ulclick( evento ) {
+    console.log( "CLICCATA UL" );
+  }
+
+  var li_todos = document.getElementsByClassName( "todos" );
+  for ( var i = 0; i < li_todos.length; i++ ) {
+    li_todos[ i ].addEventListener( 'click', ask_done_delete );
+  }
+  function ask_done_delete( event ) {
+    event.stopPropagation();
+    console.log( "CLICCATA LI" );
+
+  }
+</script>
+</body>
+</html>
