@@ -1,0 +1,32 @@
+<html>
+<head>
+  <meta charset="utf8">
+  <style>
+    pre {
+      font-family: monospace;
+      color: gray;
+      border-style: dotted;
+      border-color: black;
+      border-width: 1px;
+      width: 100%;
+      overflow: scroll;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <h1>Interazione DOM da JS</h1>
+  <p id="demo_1"></p>
+  <pre>
+    <code>
+      var demo_1_p = document.getElementById("demo_1");
+      demo_1_p.innerHTML = "Ricercare un elemento del DOM tramite il suo id e modificarne il contenuto";
+    </code>
+  </pre>
+  <script>
+    var demo_1_p       = document.getElementById( "demo_1" );
+    demo_1_p.innerHTML = "Ricercare un elemento del DOM tramite il suo id e modificarne il contenuto";
+  </script>
+</div>
+</body>
+</html>
