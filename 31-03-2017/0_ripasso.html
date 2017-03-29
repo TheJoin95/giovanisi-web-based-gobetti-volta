@@ -77,6 +77,74 @@
       demo_3_output.innerHTML = demo_3_input.value;
     }
   </script>
+  <p id="demo_4">Registrare eventi del DOM da JS</p>
+  <p>
+    <button id="demo_4_button" onclick="demo_4_button_onclick()">SE NON CLICCHI ME, MIO FRATELLO NON FUNZIONA</button>
+    <br/>
+    <br/>
+    <button id="demo_4_button_fratello">FRATELLO CLICCABILE</button>
+  </p>
+  <p id="demo_4_p" style="display: none">
+    Grazie ad addEventListener io conosco molte piu' informazioni sull'evento di click:
+    <br/>
+    <span id="demo_4_span"></span>
+  </p>
+  <pre>
+    <code>
+      function demo_4_button_onclick() {
+        var demo_4_button_fratello = document.getElementById( "demo_4_button_fratello" );
+        demo_4_button_fratello.addEventListener( 'click', demo_4_button_fratello_onclick );
+
+        alert( "ok adesso se clicchi mio fratello funziona" );
+      }
+
+      function demo_4_button_fratello_onclick( event ) {
+        var msg = "";
+        msg += "event.clientX " + event.clientX;
+        msg += "&lt;br/&gt;";
+        msg += "event.clientY " + event.clientY;
+        msg += "&lt;br/&gt;";
+        msg += "event.screenX " + event.screenX;
+        msg += "&lt;br/&gt;";
+        msg += "event.screenY " + event.screenY;
+        msg += "&lt;br/&gt;";
+        msg += "event.target " + event.target.toString();
+
+        var demo_4_span = document.getElementById("demo_4_span");
+        demo_4_span.innerHTML = msg;
+
+        var demo_4_p = document.getElementById("demo_4_p");
+        demo_4_p.style.display = "block";
+      }
+    </code>
+  </pre>
+  <script>
+    function demo_4_button_onclick() {
+      var demo_4_button_fratello = document.getElementById( "demo_4_button_fratello" );
+      demo_4_button_fratello.addEventListener( 'click', demo_4_button_fratello_onclick );
+
+      alert( "ok adesso se clicchi mio fratello funziona" );
+    }
+
+    function demo_4_button_fratello_onclick( event ) {
+      var msg = "";
+      msg += "event.clientX " + event.clientX;
+      msg += "<br/>";
+      msg += "event.clientY " + event.clientY;
+      msg += "<br/>";
+      msg += "event.screenX " + event.screenX;
+      msg += "<br/>";
+      msg += "event.screenY " + event.screenY;
+      msg += "<br/>";
+      msg += "event.target " + event.target.toString();
+
+      var demo_4_span       = document.getElementById( "demo_4_span" );
+      demo_4_span.innerHTML = msg;
+
+      var demo_4_p           = document.getElementById( "demo_4_p" );
+      demo_4_p.style.display = "block";
+    }
+  </script>
 </div>
 </body>
 </html>
