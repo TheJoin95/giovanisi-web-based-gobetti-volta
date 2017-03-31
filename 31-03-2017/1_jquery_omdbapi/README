@@ -1,11 +1,11 @@
-La libreria jQuery invece di scaricarla in locale possiamo utilizzarla
-da un repository remoto:
+Tramite AJAX andiamo a leggere i dati dei film in
 
+http://www.omdbapi.com
 
-https://cdnjs.com/libraries/jquery/
+formattare json per leggerlo meglio
 
+http://jsonlint.com
 
-in questo modo sfruttiamo la velocita' di cdnjs.com e la sua sicurezza
-per distribuire jQuery dentro le nostre pagine HTML.
+reference JSON
 
-Dentro Selection_499.png si trova come copiare il tag <script> gia' pronto.
+http://json.org/
