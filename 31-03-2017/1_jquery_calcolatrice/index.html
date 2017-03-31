@@ -1,0 +1,111 @@
+<html>
+<head>
+  <meta charset="utf8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    function my_ready() {
+      $( "button.operazione" ).click( function () {
+        var this_button     = $( this );
+        var tipo_operazione = this_button.attr( "operazione" );
+        switch ( tipo_operazione ) {
+          case "somma":
+            esegui_somma();
+            break;
+          case "sottrazione":
+            esegui_sottrazione();
+            break;
+          case "divisione":
+            esegui_divisione();
+            break;
+          case "moltiplicazione":
+            esegui_moltiplicazione();
+            break;
+        }
+      } );
+    }
+    $( document ).ready( my_ready );
+  </script>
+  <script>
+    function leggiAddendi() {
+      var addendi   = [];
+      var addendo_1 = $( "#addendo1" ).val();
+      var addendo_2 = $( "#addendo2" ).val();
+      console.log( "addendo1: " + addendo_1 );
+      console.log( "addendo2: " + addendo_2 );
+
+      addendi[ 0 ] = parseFloat( addendo_1 );
+      addendi[ 1 ] = parseFloat( addendo_2 );
+
+      return addendi;
+    }
+
+    function esegui_somma() {
+      var addendi   = leggiAddendi(); // array
+      var risultato = addendi[ 0 ] + addendi[ 1 ];
+      if ( isNaN( risultato ) ) {
+        // se è NaN
+        alert( "OMG! ERRORE!" );
+      } else {
+        // altrimenti
+        visualizza_operazione( addendi[ 0 ], addendi[ 1 ], "+", risultato );
+      }
+    }
+
+    function esegui_sottrazione() {
+      var addendi   = leggiAddendi(); // array
+      var risultato = addendi[ 0 ] - addendi[ 1 ];
+      if ( isNaN( risultato ) ) {
+        // se è NaN
+        alert( "OMG! ERRORE!" );
+      } else {
+        // altrimenti
+        visualizza_operazione( addendi[ 0 ], addendi[ 1 ], "-", risultato );
+      }
+    }
+
+    function esegui_divisione() {
+      var addendi   = leggiAddendi(); // array
+      var risultato = addendi[ 0 ] / addendi[ 1 ];
+      if ( isNaN( risultato ) ) {
+        // se è NaN
+        alert( "OMG! ERRORE!" );
+      } else {
+        // altrimenti
+        visualizza_operazione( addendi[ 0 ], addendi[ 1 ], "/", risultato );
+      }
+    }
+
+    function esegui_moltiplicazione() {
+      var addendi   = leggiAddendi(); // array
+      var risultato = addendi[ 0 ] * addendi[ 1 ];
+      if ( isNaN( risultato ) ) {
+        // se è NaN
+        alert( "OMG! ERRORE!" );
+      } else {
+        // altrimenti
+        visualizza_operazione( addendi[ 0 ], addendi[ 1 ], "*", risultato );
+      }
+    }
+
+    function visualizza_operazione( addendo1, addendo2, operatore, risultato ) {
+      var operazione_testuale = addendo1 + " " + operatore + " " + addendo2;
+      operazione_testuale     = operazione_testuale + " = " + risultato;
+      $( "#operazione_testuale" ).text( operazione_testuale );
+    }
+
+
+  </script>
+</head>
+<body>
+<input type="text" placeholder="addendo1" id="addendo1"/>
+<input type="text" placeholder="addendo2" id="addendo2"/>
+<button class="operazione" operazione="somma">Somma</button>
+<button class="operazione" operazione="sottrazione">Sottrazione</button>
+<button class="operazione" operazione="divisione">Divisione</button>
+<button class="operazione" operazione="moltiplicazione">Moltiplicazione</button>
+
+<p>
+  Risultato di <span id="operazione_testuale"></span>
+</p>
+</body>
+</html>
