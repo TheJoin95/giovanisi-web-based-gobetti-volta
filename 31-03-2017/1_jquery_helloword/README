@@ -7,3 +7,5 @@ https://cdnjs.com/libraries/jquery/
 
 in questo modo sfruttiamo la velocita' di cdnjs.com e la sua sicurezza
 per distribuire jQuery dentro le nostre pagine HTML.
+
+Dentro Selection_499.png si trova come copiare il tag <script> gia' pronto.
