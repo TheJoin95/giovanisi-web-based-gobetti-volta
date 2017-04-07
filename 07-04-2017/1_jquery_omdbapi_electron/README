@@ -1,0 +1,39 @@
+Versione electron
+
+https://electron.atom.io/
+
+che ci permette di trasformare la nostra applicazione web in un exe
+
+per creare i pacchetti abbiamo aggiunto come dipendenza di sviluppo
+
+https://github.com/electron-userland/electron-builder
+
+tramite il comando
+
+npm install --save --dev electron-builder
+
+############### jQuery non funzionava
+
+per risolvere il problema che non funzionava jQuery abbiamo copiato da
+
+http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined
+
+
+############### node.js e npm
+node.js > javascript eseguito al posto di php per accendere il web server locale
+npm > nodejs package manager serve a installare pacchetti per nodejs come electron
+
+quindi mi servono entrambi sul computer prima di poter usare electron
+
+https://nodejs.org/en/download/
+
+############### comandi
+installazione dipendenze npm > npm install
+avvio dell'applicazione per sviluppo in locale > npm start
+creazione degli eseguibili > npm run dist
+
+############### Chrome DevTools
+per abilitarli abbiamo seguito le istruzioni qua
+https://github.com/MarshallOfSound/electron-devtools-installer
+cosi dal menu View > Toggle Developer Tools posso abilitarli ed usarli come normalmente facciamo dentro a Chrome
+vedi Selection_513.png

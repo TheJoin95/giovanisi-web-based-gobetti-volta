@@ -1,0 +1,81 @@
+<html>
+<head>
+  <meta charset="utf8">
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    function ricerca_completata( data ) {
+      var total_result = data[ "totalResults" ];
+      $( "#total_result" ).text( total_result );
+
+      var risultati_ricerca             = data[ "Search" ];
+      var risultati_ricerca_contenitore = $( "#risultati_ricerca" );
+      risultati_ricerca_contenitore.text( "" );
+      for ( var i = 0; i < risultati_ricerca.length; i++ ) {
+        var risultato_corrente = risultati_ricerca[ i ];
+        var titolo             = risultato_corrente[ "Title" ];
+        var risultato_dom      = $( "<p>Titolo: " + titolo + "</p>" );
+        risultati_ricerca_contenitore.append( risultato_dom );
+      }
+
+      genera_tendina_pagine( parseInt( total_result ) );
+
+    }
+
+    function genera_tendina_pagine( total_result ) {
+      var totale_pagine  = total_result / 10;
+      var tendina_pagine = $( "<select />" );
+      tendina_pagine.on( 'change', cambio_pagina );
+      for ( var i = 1; i <= totale_pagine; i++ ) {
+        var pagina = $( "<option value='" + i + "'>Pagina " + i + "</option>" )
+        tendina_pagine.append( pagina );
+      }
+      $( "#pagine" ).html( "" );
+      $( "#pagine" ).append( tendina_pagine );
+    }
+
+    function cambio_pagina( eventObject ) {
+      var tendina            = $( this );
+      var pagina_selezionata = tendina.val();
+      alert( "pagina selezionata " + pagina_selezionata );
+
+      var testo_da_cercare = $( "#testo_di_ricerca" ).val();
+      esegui_ricerca_paginata( testo_da_cercare, pagina_selezionata );
+    }
+
+    function esegui_ricerca_paginata( testo_da_cercare, pagina_selezionata ) {
+      $.ajax( {
+        method : 'GET',
+        url    : 'http://www.omdbapi.com/?s=' + testo_da_cercare + '&page=' + pagina_selezionata,
+        success: ricerca_completata
+      } );
+    }
+
+    function esegui_ricerca( eventObj ) {
+      var testo_di_ricerca = $( "#testo_di_ricerca" ).val();
+      $.ajax( {
+        method : 'GET',
+        url    : 'http://www.omdbapi.com/?s=' + testo_di_ricerca,
+        success: ricerca_completata
+      } );
+    }
+
+    function my_ready() {
+      $( "#esegui_ricerca" ).on( 'click', esegui_ricerca );
+    }
+    $( document ).ready( my_ready );
+  </script>
+</head>
+<body>
+<h1>Fai la tua ricercaaaaaaaaa</h1>
+<div>
+  <input type="text" id="testo_di_ricerca" placeholder="testo di ricerca"/>
+  <br/>
+  <br/>
+  <button id="esegui_ricerca">Esegui ricerca!!</button>
+</div>
+<h1>Risultati trovati: <span id="total_result"></span></h1>
+<div id="pagine"></div>
+<div id="risultati_ricerca"></div>
+</body>
+</html>
