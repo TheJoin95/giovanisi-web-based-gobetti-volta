@@ -1,0 +1,42 @@
+<html>
+<head>
+  <meta charset="utf8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $( document ).ready( my_ready );
+    function my_ready() {
+      $( "#start_ajax" ).on( 'click', start_ajax_onclick );
+    }
+
+    function start_ajax_onclick() {
+      alert( "pulsante cliccato" );
+
+      $.ajax( {
+        url    : 'http://www.aqquadro.it/giovanisi-web-based-gobetti-volta/finta_api.json',
+        method : 'GET',
+        success: start_ajax_success,
+        error  : start_ajax_error,
+      } )
+    }
+
+    function start_ajax_success( response_body ) {
+      alert( "start_ajax_success" );
+      $("#nome").text(response_body.nome);
+      $("#cognome").text(response_body.cognome);
+      $("#codice_segreto").text(response_body.codice_segreto);
+    }
+
+    function start_ajax_error() {
+      alert( "start_ajax_error" );
+    }
+  </script>
+</head>
+<body>
+<button id="start_ajax">Avvia la chiamata AJAX!!!</button>
+<p>
+  Nome: <span id="nome"></span><br />
+  Cognome: <span id="cognome"></span><br />
+  Codice segreto: <span id="codice_segreto"></span><br />
+</p>
+</body>
+</html>
