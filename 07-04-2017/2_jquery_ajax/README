@@ -1,6 +1,6 @@
 ##### API
 
-HTTP GET https://storage.googleapis.com/www.aqquadro.it/giovanisi-web-based-gobetti-volta/finta_api.json
+HTTP GET http://www.aqquadro.it/giovanisi-web-based-gobetti-volta/finta_api.json
 {
   "nome": "pucci pucci",
   "cognome": "ucci ucci",
