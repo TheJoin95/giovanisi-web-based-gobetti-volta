@@ -1,0 +1,8 @@
+##### API
+
+HTTP GET https://transfer.sh/14zj3g/finta_api.json
+{
+  "nome": "pucci pucci",
+  "cognome": "ucci ucci",
+  "codice_segreto": 123456
+}

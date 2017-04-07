@@ -48,6 +48,9 @@
         method : 'GET',
         url    : 'http://www.omdbapi.com/?s=' + testo_da_cercare + '&page=' + pagina_selezionata,
         success: ricerca_completata
+        error: function(){
+          alert("errore ajax")
+        }
       } );
     }
 
