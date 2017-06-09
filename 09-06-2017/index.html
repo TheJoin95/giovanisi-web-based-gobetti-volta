@@ -34,7 +34,7 @@
     </form>
     <p>Il valore all'indice {{indice_points}} e' {{ points[indice_points] }}</p>
     <h4>COntenuto di points array</h4>
-    <ul id="ciccio">
+    <ul>
       <li ng-repeat="point in points">
         {{ point }}
       </li>
@@ -57,6 +57,22 @@
     <p>
       Ultima modifica: {{ last_edit() | date : 'mm:ss' }}
     </p>
+  </div>
+  <div ng-controller="ajax_ctrl">
+    <h3>Questo controller usa $http per recuperare dati</h3>
+    <button ng-click="recupera_dati()">CLiccami</button>
+    <br/>
+    <input type="text" placeholder="query_nome" ng-model="query_nome">
+    <br/>
+    <input type="text" placeholder="query_specie" ng-model="query_specie">
+    <br/>
+    <input type="text" placeholder="query_ambiente" ng-model="query_ambiente">
+    <br/>
+    <ul>
+      <li ng-repeat="animale in animali | filter : {'specie':query_specie, 'ambiente':query_ambiente, 'nome':query_nome}">
+        {{ animale.nome }} e' un {{ animale.specie }} ({{ animale.ambiente }})
+      </li>
+    </ul>
   </div>
 </div>
 <script>
@@ -83,6 +99,19 @@
       return new Date();
     }
   } );
+
+  app1.controller( 'ajax_ctrl', function ( $scope, $http ) {
+    $scope.animali       = [];
+    $scope.query_nome       = '';
+    $scope.query_specie       = '';
+    $scope.query_ambiente       = '';
+    $scope.recupera_dati = function () {
+      $http.get( "animali.json" ).then( function ( response ) {
+        $scope.animali = response.data.elenco;
+      } );
+    }
+  } );
+
 </script>
 </body>
 </html>

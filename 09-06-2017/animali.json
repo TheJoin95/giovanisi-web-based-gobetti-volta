@@ -1,0 +1,34 @@
+{
+  "elenco": [
+    {
+      "nome": "Pluto",
+      "specie": "cane",
+      "ambiente": "terra"
+    },
+    {
+      "nome": "Pluto2",
+      "specie": "cane",
+      "ambiente": "terra"
+    },
+    {
+      "nome": "Pluto3",
+      "specie": "lupo",
+      "ambiente": "terra"
+    },
+    {
+      "nome": "Nemo1",
+      "specie": "pesce",
+      "ambiente": "acqua"
+    },
+    {
+      "nome": "Nemo",
+      "specie": "pescespada",
+      "ambiente": "acqua"
+    },
+    {
+      "nome": "Nemo",
+      "specie": "pesce",
+      "ambiente": "aria"
+    }
+  ]
+}
