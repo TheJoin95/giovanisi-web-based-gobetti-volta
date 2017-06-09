@@ -101,11 +101,11 @@
   } );
 
   app1.controller( 'ajax_ctrl', function ( $scope, $http ) {
-    $scope.animali       = [];
-    $scope.query_nome       = '';
-    $scope.query_specie       = '';
-    $scope.query_ambiente       = '';
-    $scope.recupera_dati = function () {
+    $scope.animali        = [];
+    $scope.query_nome     = '';
+    $scope.query_specie   = '';
+    $scope.query_ambiente = '';
+    $scope.recupera_dati  = function () {
       $http.get( "animali.json" ).then( function ( response ) {
         $scope.animali = response.data.elenco;
       } );
