@@ -26,7 +26,12 @@
   <hr/>
   <div ng-init="points=[1,15,19,2,40];indice_points=0">
     <h3>Arrayss</h3>
-    indice_points: <input type="number" ng-model="indice_points"><br>
+    <form name="formone">
+    <span style="color:red;" ng-show="formone.indice_points.$error.number">
+      Errore non e ' un numero
+    </span>
+    indice_points: <input type="number" name="indice_points" ng-model="indice_points"><br>
+    </form>
     <p>Il valore all'indice {{indice_points}} e' {{ points[indice_points] }}</p>
     <h4>COntenuto di points array</h4>
     <ul id="ciccio">
@@ -34,6 +39,11 @@
         {{ point }}
       </li>
     </ul>
+    Scrivi "mostrami" per far comparire il messaggio nascosto: <input type="text" ng-model="mostrami">
+    <br/>
+    <p ng-show="mostrami === 'mostrami'">
+      Messaggio nascostisttimo!!
+    </p>
   </div>
 </div>
 <script>
