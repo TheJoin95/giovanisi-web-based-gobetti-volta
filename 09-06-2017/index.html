@@ -12,7 +12,7 @@
   <p>My first expression w/ variable: {{ 'Mr. ' + name }}</p>
   <p>Stampo variabile senza ng-bind {{name}}</p>
   <hr/>
-  <div ng-controller="miocontroller">
+  <div style="background-color:{{colore_sfondo}}" ng-controller="miocontroller">
     <h3>Questo div ha un controller custom</h3>
     First Name: <input type="text" ng-model="firstName"><br>
     Last Name: <input type="text" ng-model="lastName"><br>
@@ -20,6 +20,8 @@
     Full Name: {{firstName + " " + lastName}}
     <br/>
     Oggi e' il {{dataOggi}}
+    <br/>
+    digita per cambiare il colore di sfondo<input type="text" ng-model="colore_sfondo"><br>
   </div>
 </div>
 <script>
@@ -31,6 +33,7 @@
     $scope.lastName  = "Doe";
     $scope.dataOggi  = data_oggi;
     console.log( "e' stato eseguito il codice extra del controller" );
+    colore_sfondo = "white";
   } );
 </script>
 </body>
