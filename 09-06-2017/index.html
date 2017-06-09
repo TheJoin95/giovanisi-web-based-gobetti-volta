@@ -9,23 +9,29 @@
   <p ng-bind="firstName"></p>
   <h3>AngularJS expressions</h3>
   <p>My first expression: {{ 5 + 5 }}</p>
-  <p>My first expression w/ variable: {{  'Mr. ' + name }}</p>
+  <p>My first expression w/ variable: {{ 'Mr. ' + name }}</p>
   <p>Stampo variabile senza ng-bind {{name}}</p>
   <hr/>
   <div ng-controller="miocontroller">
     <h3>Questo div ha un controller custom</h3>
     First Name: <input type="text" ng-model="firstName"><br>
     Last Name: <input type="text" ng-model="lastName"><br>
-    <br>
+    <br/>
     Full Name: {{firstName + " " + lastName}}
+    <br/>
+    Oggi e' il {{dataOggi}}
   </div>
 </div>
 <script>
-  var app = angular.module('App1', []);
-  app.controller('miocontroller', function($scope) {
-    $scope.firstName= "JohnDentro";
-    $scope.lastName= "Doe";
-  });
+  var app1 = angular.module( 'App1', [] );
+  app1.controller( 'miocontroller', function ( $scope ) {
+    // inizializzazioni personalizzate
+    var data_oggi    = new Date();
+    $scope.firstName = "JohnDentro";
+    $scope.lastName  = "Doe";
+    $scope.dataOggi  = data_oggi;
+    console.log( "e' stato eseguito il codice extra del controller" );
+  } );
 </script>
 </body>
 </html>
