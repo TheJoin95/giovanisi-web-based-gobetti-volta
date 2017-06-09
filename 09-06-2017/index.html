@@ -23,6 +23,12 @@
     <br/>
     digita per cambiare il colore di sfondo<input type="text" ng-model="colore_sfondo"><br>
   </div>
+  <hr/>
+  <div ng-init="points=[1,15,19,2,40];indice_points=0">
+    <h3>Arrayss</h3>
+    indice_points: <input type="number" ng-model="indice_points"><br>
+    <p>Il valore all'indice {{indice_points}} e' {{ points[indice_points] }}</p>
+  </div>
 </div>
 <script>
   var app1 = angular.module( 'App1', [] );
