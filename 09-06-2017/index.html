@@ -28,6 +28,12 @@
     <h3>Arrayss</h3>
     indice_points: <input type="number" ng-model="indice_points"><br>
     <p>Il valore all'indice {{indice_points}} e' {{ points[indice_points] }}</p>
+    <h4>COntenuto di points array</h4>
+    <ul id="ciccio">
+      <li ng-repeat="point in points">
+        {{ point }}
+      </li>
+    </ul>
   </div>
 </div>
 <script>
