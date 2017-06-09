@@ -51,6 +51,13 @@
     <input placeholder="testo alert" type="text" ng-model="alert_text">
     <button ng-click="button_click()">CLiccami</button>
   </div>
+  <div ng-controller="last_edit_ctrl">
+    <h3>Questo controller registra l'ultima modifica del suo model</h3>
+    <input placeholder="scrivi per sapere ultima modifica" type="text" ng-model="last_edit_model">
+    <p>
+      Ultima modifica : {{ last_edit() }}
+    </p>
+  </div>
 </div>
 <script>
   var app1 = angular.module( 'App1', [] );
@@ -65,9 +72,15 @@
   } );
 
   app1.controller( 'click_actions', function ( $scope ) {
-    $scope.alert_text = "";
+    $scope.alert_text   = "";
     $scope.button_click = function () {
       alert( $scope.alert_text );
+    }
+  } );
+
+  app1.controller( 'last_edit_ctrl', function ( $scope ) {
+    $scope.last_edit = function () {
+      return new Date();
     }
   } );
 </script>
