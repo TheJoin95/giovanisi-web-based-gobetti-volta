@@ -9,7 +9,7 @@
   <p ng-bind="firstName"></p>
   <h3>AngularJS expressions</h3>
   <p>My first expression: {{ 5 + 5 }}</p>
-  <p>My first expression w/ variable: {{ 'Mr. ' + name }}</p>
+  <p>My first expression w/ variable: {{ 'Mr. ' + ( name | uppercase ) }}</p>
   <p>Stampo variabile senza ng-bind {{name}}</p>
   <hr/>
   <div style="background-color:{{colore_sfondo}}" ng-controller="miocontroller">
@@ -55,7 +55,7 @@
     <h3>Questo controller registra l'ultima modifica del suo model</h3>
     <input placeholder="scrivi per sapere ultima modifica" type="text" ng-model="last_edit_model">
     <p>
-      Ultima modifica : {{ last_edit() }}
+      Ultima modifica: {{ last_edit() | date : 'mm:ss' }}
     </p>
   </div>
 </div>
