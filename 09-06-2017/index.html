@@ -30,7 +30,7 @@
     <span style="color:red;" ng-show="formone.indice_points.$error.number">
       Errore non e ' un numero
     </span>
-    indice_points: <input type="number" name="indice_points" ng-model="indice_points"><br>
+      indice_points: <input type="number" name="indice_points" ng-model="indice_points"><br>
     </form>
     <p>Il valore all'indice {{indice_points}} e' {{ points[indice_points] }}</p>
     <h4>COntenuto di points array</h4>
@@ -45,6 +45,12 @@
       Messaggio nascostisttimo!!
     </p>
   </div>
+  <hr/>
+  <div ng-controller="click_actions">
+    <h3>Questo controller testa ng-click</h3>
+    <input placeholder="testo alert" type="text" ng-model="alert_text">
+    <button ng-click="button_click()">CLiccami</button>
+  </div>
 </div>
 <script>
   var app1 = angular.module( 'App1', [] );
@@ -56,6 +62,13 @@
     $scope.dataOggi  = data_oggi;
     console.log( "e' stato eseguito il codice extra del controller" );
     colore_sfondo = "white";
+  } );
+
+  app1.controller( 'click_actions', function ( $scope ) {
+    $scope.alert_text = "";
+    $scope.button_click = function () {
+      alert( $scope.alert_text );
+    }
   } );
 </script>
 </body>
